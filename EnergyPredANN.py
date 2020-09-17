@@ -37,4 +37,15 @@ y_pred = ann.predict(X_test)
 # Set the precision to two decimal places
 np.set_printoptions(precision=2)
 
-ann.summary()
+new_y_test = y_test.reshape(len(y_test), 1)
+#print(new_y_test)
+#print(y_pred)
+
+# Calculate the accuracy of the ANN model
+model_acc = 100-((abs(y_pred - new_y_test)/new_y_test)*100)
+
+print(model_acc)
+
+print(np.average(model_acc))
+
+# Accuracy of 99.144 %
